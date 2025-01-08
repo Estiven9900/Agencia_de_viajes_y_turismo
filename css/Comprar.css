@@ -1,0 +1,177 @@
+/* ---------- RESETEO Y CONFIGURACIÓN GENERAL ---------- */
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom right, #2c3e50, #34495e);
+  color: #ecf0f1;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  padding: 20px; /* Espaciado para aire en la página */
+  overflow-x: hidden;
+}
+
+/* ---------- NUBES ---------- */
+#clouds {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(to top, #34495e, #2c3e50);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cloud {
+  width: 200px;
+  height: 60px;
+  background: #ecf0f1;
+  border-radius: 50%;
+  position: absolute;
+  animation: float 20s linear infinite;
+}
+
+.cloud.x1 {
+  top: 50px;
+  left: 10%;
+  animation-duration: 23s;
+}
+
+.cloud.x2 {
+  top: 80px;
+  left: 30%;
+  animation-duration: 15s;
+}
+
+.cloud.x3 {
+  top: 60px;
+  left: 60%;
+  animation-duration: 18s;
+}
+
+.cloud.x4 {
+  top: 100px;
+  left: 80%;
+  animation-duration: 20s;
+}
+
+.cloud.x5 {
+  top: 20px;
+  left: 50%;
+  animation-duration: 25s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ---------- CONTENEDOR PRINCIPAL ---------- */
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ---------- FORMULARIO ---------- */
+#login form {
+  background: #2c3e50;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+#login form h2, h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ecf0f1;
+  font-weight: bold;
+}
+
+#login form input,
+#login form select,
+#login form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  color: #ecf0f1;
+  background: #34495e;
+  border: 1px solid #7f8c8d;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#login form input:focus,
+#login form select:focus,
+#login form textarea:focus {
+  outline: none;
+  border-color: #1abc9c;
+  background: #3b4148;
+  box-shadow: 0 0 8px rgba(26, 188, 156, 0.6);
+}
+
+#login form textarea {
+  resize: none;
+}
+
+#login form input[type="submit"] {
+  background: linear-gradient(to right, #1abc9c, #16a085);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#login form input[type="submit"]:hover {
+  background: linear-gradient(to right, #16a085, #1abc9c);
+  transform: translateY(-2px);
+}
+
+#login form input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+#camposAdicionales {
+  display: none;
+}
+
+/* ---------- ETIQUETAS Y OPCIONES ---------- */
+#login form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ecf0f1;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#login form select {
+  appearance: none; /* Ocultar flecha en navegadores */
+}
+
+/* ---------- RESPONSIVIDAD ---------- */
+@media (max-width: 768px) {
+  #login form {
+    padding: 20px;
+  }
+
+  #login form h2, h3 {
+    font-size: 18px;
+  }
+
+  #login form input,
+  #login form select,
+  #login form textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,112 @@
+/* ---------- RESETEO Y CONFIGURACIÓN GENERAL ---------- */
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom right, #2c3338, #444b52);
+  color: #606468;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  overflow-y: auto;
+  padding: 20px; /* Espaciado para dar aire a la página */
+}
+
+/* ---------- CONTENEDOR DEL FORMULARIO ---------- */
+.container {
+  width: 100%;
+  max-width: 450px;
+  margin: 40px auto; /* Espaciado para centrar */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* ---------- ENCABEZADO ---------- */
+.container h2 {
+  color: #eee;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ---------- FORMULARIO ---------- */
+form {
+  background: #363b41;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra elegante */
+  width: 100%;
+}
+
+form label {
+  color: #eee;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 600;
+}
+
+form input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  color: #eee;
+  background: #3b4148;
+  border: 1px solid #606468;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #ea4c88;
+  background: #444b52;
+  box-shadow: 0 0 8px rgba(234, 76, 136, 0.6); /* Efecto de foco */
+}
+
+form input[type="submit"] {
+  background: linear-gradient(to right, #ea4c88, #d44179);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+form input[type="submit"]:hover {
+  background: linear-gradient(to right, #d44179, #ea4c88);
+  transform: translateY(-2px); /* Efecto de botón flotante */
+}
+
+form input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* ---------- RESPONSIVIDAD ---------- */
+@media (max-width: 768px) {
+  form {
+    padding: 20px;
+  }
+
+  form label {
+    font-size: 12px;
+  }
+
+  form input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  form input[type="submit"] {
+    font-size: 14px;
+  }
+}
