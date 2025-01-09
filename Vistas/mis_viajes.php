@@ -45,43 +45,48 @@ $result = $stmt->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Viajes</title>
     <link rel="icon" type="image/png" href="../img/logo.png">
-    <link rel="stylesheet" href="../css/mis_viajes.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/custom.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Mis Viajes</h1>
+<div class="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">Mis Viajes</h1>
 
-        <?php if ($result->num_rows > 0): ?>
-            <table>
+    <?php if ($result->num_rows > 0): ?>
+        <div class="overflow-x-auto">
+            <table class="min-w-full table-auto border-collapse border border-gray-300 bg-white">
                 <thead>
-                    <tr>
-                        <th>Destino</th>
-                        <th>Fecha de Salida</th>
-                        <th>Fecha de Regreso</th>
-                        <th>Precio</th>
-                        <th>Detalles</th>
+                    <tr class="bg-blue-100">
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Destino</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Fecha de Salida</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Fecha de Regreso</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Precio</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Detalles</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while ($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($row['destino']); ?></td>
-                            <td><?php echo date("d/m/Y", strtotime($row['fecha_salida'])); ?></td>
-                            <td><?php echo date("d/m/Y", strtotime($row['fecha_regreso'])); ?></td>
-                            <td><?php echo htmlspecialchars(number_format($row['precio'], 2, ',', '.')); ?> COP</td>
-                            <td>
-                                <a href="detalle_viaje.php?viaje_id=<?php echo $row['id']; ?>" class="btn">Ver Detalles</a>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2"><?php echo htmlspecialchars($row['destino']); ?></td>
+                            <td class="border border-gray-300 px-4 py-2"><?php echo date("d/m/Y", strtotime($row['fecha_salida'])); ?></td>
+                            <td class="border border-gray-300 px-4 py-2"><?php echo date("d/m/Y", strtotime($row['fecha_regreso'])); ?></td>
+                            <td class="border border-gray-300 px-4 py-2 text-right"><?php echo htmlspecialchars(number_format($row['precio'], 2, ',', '.')); ?> COP</td>
+                            <td class="border border-gray-300 px-4 py-2 text-center">
+                                <a href="detalle_viaje.php?viaje_id=<?php echo $row['id']; ?>" class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-lg">Ver Detalles</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
             </table>
-        <?php else: ?>
-            <p>No tienes viajes registrados actualmente.</p>
-        <?php endif; ?>
+        </div>
+    <?php else: ?>
+        <p class="text-center text-gray-600 text-lg mt-6">No tienes viajes registrados actualmente.</p>
+    <?php endif; ?>
 
-        <a href="../index.html" class="btn">Volver al Inicio</a>
+    <div class="text-center mt-6">
+        <a href="../index.html" class="bg-gray-700 hover:bg-gray-800 text-white text-sm px-6 py-2 rounded-lg shadow">Volver al Inicio</a>
     </div>
+</div>
 </body>
 </html>
 
