@@ -23,7 +23,7 @@ try {
     }
 
     // Preparar la consulta
-    $stmt = $conn->prepare("SELECT destino, fecha_salida, fecha_regreso, precio FROM viajes WHERE id = ?");
+    $stmt = $conn->prepare("SELECT destino, lugar_salida, fecha_salida, fecha_regreso, precio FROM viajes WHERE id = ?");
     if (!$stmt) {
         throw new Exception("Error al preparar la consulta: " . $conn->error);
     }
@@ -38,7 +38,7 @@ try {
     }
 
     // Asignar resultados
-    $stmt->bind_result($destino, $fecha_salida, $fecha_regreso, $precio);
+    $stmt->bind_result($destino, $lugar_salida, $fecha_salida, $fecha_regreso, $precio);
     $stmt->fetch();
 
     // Cerrar el statement y la conexión
@@ -86,6 +86,7 @@ try {
     
     <h3>Detalles del Viaje</h3>
     <input type="text" id="destino" name="destino" value="<?php echo htmlspecialchars($destino); ?>" readonly>
+    <input type="text" id="lugar_salida" name="lugar_salida" value="<?php echo htmlspecialchars($lugar_salida); ?>" readonly>
     <input type="date" id="fecha_salida" name="fecha_salida" value="<?php echo htmlspecialchars($fecha_salida); ?>" readonly>
     <input type="date" id="fecha_regreso" name="fecha_regreso" value="<?php echo htmlspecialchars($fecha_regreso); ?>" readonly>
     <input type="text" id="precio" name="precio" value="<?php echo htmlspecialchars(number_format($precio, 2)); ?>" readonly>

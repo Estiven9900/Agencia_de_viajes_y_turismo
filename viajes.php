@@ -82,7 +82,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                        <a href="index.html" class="nav-item nav-link">Inicio</a>
                         <a href="about.html" class="nav-item nav-link">Sobre Nosotros</a>
                         <a href="service.html" class="nav-item nav-link">Servicios</a>
                         <a href="contact.html" class="nav-item nav-link">Contacto</a>
@@ -154,7 +154,9 @@
                                     <div class="service-content pb-4">
                                         <a><h4 class="text-white mb-4 py-3">Bali, Indonesia</h4></a>
                                         <div class="px-4">
-                                            <p class="mb-4"></p>
+                                            <p class="mb-4">•Lugar de Salida: Bogotá, Colombia, Aeropuerto Traveltura, Calle Falsa 123 <br>
+                                                            •Fecha de Salida: 10 de enero de 2025 <br>
+                                                            •Fecha de Regreso: 20 de enero de 2025</p>
                                             <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="Vistas/Comprar.php?id_viaje=1">$6,000,000</a>
                                         </div>
                                     </div>
@@ -178,7 +180,9 @@
                                     <div class="service-content pb-4">
                                         <a><h4 class="text-white mb-4 py-3">París, Francia</h4></a>
                                         <div class="px-4">
-                                            <p class="mb-4"></p>
+                                            <p class="mb-4">•Lugar de Salida: Bogotá, Colombia, Aeropuerto Traveltura, Calle Falsa 123<br>
+                                                            •Fecha de Salida: 5 de febrero de 2025<br>
+                                                            •Fecha de Regreso: 15 de febrero de 2025</p>
                                             <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="Vistas/Comprar.php?id_viaje=2">$4,800,000</a>
                                         </div>
                                     </div>
@@ -202,7 +206,10 @@
                                     <div class="service-content pb-4">
                                         <a><h4 class="text-white mb-4 py-3">Kyoto, Japón</h4></a>
                                         <div class="px-4">
-                                            <p class="mb-4"></p>
+                                            <p class="mb-4">•Lugar de Salida: Bogotá, Colombia, Aeropuerto Traveltura, Calle Falsa 123<br>
+                                            •Fecha de Salida: 1 de marzo de 2025<br>
+                                            •Fecha de Regreso: 10 de marzo de 2025
+                                            </p>
                                             <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="Vistas/Comprar.php?id_viaje=3">$7,200,000</a>
                                         </div>
                                     </div>
@@ -227,7 +234,10 @@
                                     <div class="service-content pb-4">
                                         <a><h4 class="text-white mb-4 py-3">Marrakech, Marruecos</h4></a>
                                         <div class="px-4">
-                                            <p class="mb-4"></p>
+                                            <p class="mb-4">•Lugar de Salida: Bogotá, Colombia, Aeropuerto Traveltura, Calle Falsa 123<br>
+                                            •Fecha de Salida: 15 de abril de 2025<br>
+                                            •Fecha de Regreso: 25 de abril de 2025
+                                            </p>
                                             <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="Vistas/Comprar.php?id_viaje=4">$5,600,000</a>
                                         </div>
                                     </div>
@@ -251,7 +261,10 @@
                                     <div class="service-content pb-4">
                                         <a><h4 class="text-white mb-4 py-3">Santorini, Grecia</h4></a>
                                         <div class="px-4">
-                                            <p class="mb-4"></p>
+                                            <p class="mb-4">•Lugar de Salida: Bogotá, Colombia, Aeropuerto Traveltura, Calle Falsa 123<br>
+                                            •Fecha de Salida: 5 de mayo de 2025<br>
+                                            •Fecha de Regreso: 15 de mayo de 2025
+                                            </p>
                                             <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="Vistas/Comprar.php?id_viaje=5">$6,000,000 </a>
                                         </div>
                                     </div>
@@ -275,7 +288,10 @@
                                     <div class="service-content pb-4">
                                         <a ><h4 class="text-white mb-4 py-3">Cape Town, Sudáfrica</h4></a>
                                         <div class="px-4">
-                                            <p class="mb-4"></p>
+                                            <p class="mb-4">•Lugar de Salida: Bogotá, Colombia, Aeropuerto Traveltura, Calle Falsa 123<br>
+                                            •Fecha de Salida: 1 de junio de 2025<br>
+                                            •Fecha de Regreso: 10 de junio de 2025
+                                            </p>
                                             <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="Vistas/Comprar.php?id_viaje=6">$7,200,000</a>
                                         </div>
                                     </div>

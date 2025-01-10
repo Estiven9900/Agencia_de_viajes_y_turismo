@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $telefono = limpiarEntrada($_POST['telefono'] ?? '');
     $email = limpiarEntrada($_POST['email'] ?? '');
     $destino = limpiarEntrada($_POST['destino'] ?? '');
+    $lugar_salida = limpiarEntrada($_POST['lugar_salida'] ?? '');
     $fecha_salida = limpiarEntrada($_POST['fecha_salida'] ?? '');
     $fecha_regreso = limpiarEntrada($_POST['fecha_regreso'] ?? '');
     $numero_asiento = limpiarEntrada($_POST['asiento'] ?? '');
@@ -25,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($email)) $errores[] = "El correo electrónico es obligatorio.";
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errores[] = "El correo electrónico no es válido.";
     if (empty($destino)) $errores[] = "El destino es obligatorio.";
+    if (empty($lugar_salida)) $errores[] = "El lugar de salida es obligatorio.";
     if (empty($fecha_salida) || empty($fecha_regreso)) $errores[] = "Las fechas de salida y regreso son obligatorias.";
     if (empty($telefono) || !preg_match("/^\d{10}$/", $telefono)) $errores[] = "El teléfono debe ser un número válido de 10 dígitos.";
     if (empty($numero_asiento)) $errores[] = "El número de asiento es obligatorio.";
@@ -66,7 +68,7 @@ if ($stmt->num_rows == 0) {
 
     // Insertar reserva utilizando prepared statements para evitar inyecciones SQL
     $stmt = $conn->prepare(
-        "INSERT INTO reservas (nombre, apellido, telefono, email, destino, fecha_salida, fecha_regreso, numero_asiento, comentarios, acepta_terminos, metodo_pago, cuenta, contrasena, usuario_id, viaje_id)
+        "INSERT INTO reservas (nombre, apellido, telefono, email, destino, lugar_salida, fecha_salida, fecha_regreso, numero_asiento, comentarios, acepta_terminos, metodo_pago, cuenta, contrasena, usuario_id, viaje_id)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)"
     );
 
@@ -74,7 +76,7 @@ if ($stmt->num_rows == 0) {
         die("Error al preparar la consulta: " . $conn->error);
     }
 
-    $stmt->bind_param("sssssssiissssi", $nombre, $apellido, $telefono, $email, $destino, $fecha_salida, $fecha_regreso, $numero_asiento, $comentarios, $acepta_terminos, $metodo_pago, $cuenta, $contrasena, $viaje_id);
+    $stmt->bind_param("sssssssiissssi", $nombre, $apellido, $telefono, $email, $destino, $lugar_salida, $fecha_salida, $fecha_regreso, $numero_asiento, $comentarios, $acepta_terminos, $metodo_pago, $cuenta, $contrasena, $viaje_id);
 
     if ($stmt->execute()) {
         echo "Reserva realizada con éxito.";
