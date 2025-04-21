@@ -1,4 +1,11 @@
 <?php
+  // Conexión a la base de datos
+  $conn = new mysqli("localhost", "mi_usuario", "mi_contraseña_segura", "agencia_viajes");
+
+  if ($conn->connect_error) {
+      die("Error de conexión: " . $conn->connect_error);
+  }
+  
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Función para limpiar entradas
     function limpiarEntrada($dato) {
@@ -46,13 +53,6 @@ if (empty($viaje_id)) {
     exit;
 }
 
-    // Conexión a la base de datos
-    $conn = new mysqli("localhost", "mi_usuario", "mi_contraseña_segura", "agencia_viajes");
-
-    if ($conn->connect_error) {
-        die("Error de conexión: " . $conn->connect_error);
-    }
-
 // Verificar si el viaje existe en la tabla viajes
 $stmt = $conn->prepare("SELECT id FROM viajes WHERE id = ?");
 $stmt->bind_param("i", $viaje_id);
@@ -66,18 +66,36 @@ if ($stmt->num_rows == 0) {
     exit;
 }
 
+$usuario_id = null; // Si no hay usuario logueado
+
     // Insertar reserva utilizando prepared statements para evitar inyecciones SQL
     $stmt = $conn->prepare(
-        "INSERT INTO reservas (nombre, apellido, telefono, email, destino, lugar_salida, fecha_salida, fecha_regreso, numero_asiento, comentarios, acepta_terminos, metodo_pago, cuenta, contrasena, usuario_id, viaje_id)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)"
+        "INSERT INTO reservas (nombre, apellido, telefono, email, destino, fecha_salida, fecha_regreso, numero_asiento, comentarios, acepta_terminos, metodo_pago, cuenta, contrasena, usuario_id, viaje_id)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
     );
-
+    
     if ($stmt === false) {
         die("Error al preparar la consulta: " . $conn->error);
     }
-
-    $stmt->bind_param("sssssssiissssi", $nombre, $apellido, $telefono, $email, $destino, $lugar_salida, $fecha_salida, $fecha_regreso, $numero_asiento, $comentarios, $acepta_terminos, $metodo_pago, $cuenta, $contrasena, $viaje_id);
-
+    
+    $stmt->bind_param(
+        "sssssssiissssii",
+        $nombre,
+        $apellido,
+        $telefono,
+        $email,
+        $destino,
+        $fecha_salida,
+        $fecha_regreso,
+        $numero_asiento,
+        $comentarios,
+        $acepta_terminos,
+        $metodo_pago,
+        $cuenta,
+        $contrasena,
+        $usuario_id, // Asegúrate de que este valor esté definido o sea NULL
+        $viaje_id
+    );
     if ($stmt->execute()) {
         echo "Reserva realizada con éxito.";
         header("Location: ../service.html");
