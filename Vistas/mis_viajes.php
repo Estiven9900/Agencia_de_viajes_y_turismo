@@ -83,7 +83,7 @@ if ($stmt) {
         <div class="flex items-center space-x-4">
             <!-- Mostrar el nombre del usuario -->
             <span class="text-lg">Bienvenido, <?php echo htmlspecialchars($user_data['nombre'] . ' ' . $user_data['apellido']); ?></span>
-            <a href="logout.php" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Cerrar Sesión</a>
+            <a href="login.php" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Cerrar Sesión</a>
         </div>
     </header>
 
